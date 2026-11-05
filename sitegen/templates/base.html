@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} · Chronic Disease Data Exchange Lab</title>
+<meta name="description" content="{{ synthetic }} TEFCA-inspired chronic disease data exchange simulation (portfolio project).">
+<link rel="stylesheet" href="{{ root }}static/style.css">
+<script>
+  (function () { try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+</head>
+<body>
+<div class="banner" role="note"><strong>{{ synthetic }}</strong> Not a TEFCA implementation.</div>
+<header class="site"><div class="wrap">
+  <a class="brand" href="{{ root }}index.html">Chronic Disease Data Exchange Lab</a>
+  <nav class="top" aria-label="Main">
+    <a href="{{ root }}index.html#results">Results</a>
+    <a href="{{ root }}docs/use_case.html">Use case</a>
+    <a href="{{ root }}docs/data_sharing_protocol.html">Protocol</a>
+    <a href="{{ root }}docs/index.html">Docs</a>
+    <a href="{{ root }}examples/index.html">Examples</a>
+    <a href="{{ app_url }}">App</a>
+    <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle light/dark theme">◐ Theme</button>
+  </nav>
+</div></header>
+<main>
+{% block content %}{% endblock %}
+</main>
+<footer class="site"><div class="wrap">
+  <p><strong>{{ disclaimer }}</strong></p>
+  <p>{{ synthetic }} {{ not_legal }}</p>
+  <p>Author: {{ author }} · <a href="{{ repo }}">Source on GitHub</a> · Built {{ as_of }} data cut.</p>
+</div></footer>
+<script>
+(function () {
+  var btn = document.getElementById("theme-toggle");
+  function effective() {
+    var t = document.documentElement.getAttribute("data-theme");
+    if (t) return t;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  btn.addEventListener("click", function () {
+    var next = effective() === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    document.dispatchEvent(new CustomEvent("themechange", { detail: next }));
+  });
+  window.__effectiveTheme = effective;
+})();
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>
