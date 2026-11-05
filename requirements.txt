@@ -5,7 +5,7 @@ pandas==3.1.1
 plotly==7.1.0
 fastapi==0.162.0
 httpx==0.28.1
-httpx2==2.16.0
+starlette==1.10.0  # pinned: TestClient's httpx support is deprecated in Starlette
 uvicorn==0.54.0
 markdown==3.11.2
 jinja2==3.1.6

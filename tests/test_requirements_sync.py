@@ -21,7 +21,9 @@ LOCAL_PACKAGES = {"labcore", "synth", "network", "exchange", "measures", "app", 
 MODULE_TO_DIST = {
     "duckdb": {"duckdb"},
     "fastapi": {"fastapi"},
-    "fastapi.testclient": {"httpx2"},  # Starlette's TestClient uses httpx2 (httpx is deprecated there)
+    # FastAPI's TestClient is Starlette's. It needs an HTTP client (httpx from encode) and Starlette is
+    # pinned because its httpx support is deprecated in favor of httpx2 and could be removed later.
+    "fastapi.testclient": {"httpx", "starlette"},
     "pandas": {"pandas"},
     "plotly": {"plotly"},
     "streamlit": {"streamlit"},

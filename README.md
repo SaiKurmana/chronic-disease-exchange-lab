@@ -8,7 +8,7 @@
 
 A working simulation of a chronic disease use case for nationwide health information exchange, inspired by TEFCA's **Public Health** exchange purpose. A public health agency requests standardized hypertension and diabetes data from five simulated healthcare organizations across a simulated network. It then maps local codes, deduplicates patients across organizations, and computes population measures for surveillance and program action. The repo also includes the use-case, stakeholder and protocol documentation a real program would need, written as reusable templates.
 
-**Site:** GitHub Pages (built by CI from `main`) · **App:** `make app` (Streamlit; hosted URL: `APP_URL`)
+**Site:** <https://saikurmana.github.io/chronic-disease-exchange-lab/> · **App:** `make app` (Streamlit; hosted URL: `APP_URL`)
 
 ## The problem
 
