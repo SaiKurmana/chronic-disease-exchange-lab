@@ -1,6 +1,8 @@
 """FHIR structural validation + lightweight US Core 6.1.0 "must have" checks.
 
-Structural validation uses the `fhir.resources` R4B models. Per the official R4->R4B diff
+Structural validation uses the `fhir.resources` R4B models (types, cardinality, unknown
+elements, primitive formats) plus explicit checks of the R4 *required* value-set bindings
+listed in REQUIRED_CODES / REQUIRED_CC (the models do not enforce bindings). Per the official R4->R4B diff
 (hl7.org/fhir/R4B/diff.html), Patient, Condition, Encounter, MedicationRequest, Organization,
 Bundle and OperationOutcome are unchanged between R4 and R4B; Observation differs only in
 allowing extra Observation.subject target types, so we additionally check that every
@@ -30,6 +32,79 @@ _MODELS = {
 }
 
 
+# R4 required bindings for `code`-typed elements used in this project. fhir.resources validates
+# structure, types and cardinality but not value-set membership, so we check these explicitly.
+REQUIRED_CODES = {
+    ("Patient", "gender"): {"male", "female", "other", "unknown"},
+    ("Observation", "status"): {
+        "registered",
+        "preliminary",
+        "final",
+        "amended",
+        "corrected",
+        "cancelled",
+        "entered-in-error",
+        "unknown",
+    },
+    ("Encounter", "status"): {
+        "planned",
+        "arrived",
+        "triaged",
+        "in-progress",
+        "onleave",
+        "finished",
+        "cancelled",
+        "entered-in-error",
+        "unknown",
+    },
+    ("MedicationRequest", "status"): {
+        "active",
+        "on-hold",
+        "cancelled",
+        "completed",
+        "entered-in-error",
+        "stopped",
+        "draft",
+        "unknown",
+    },
+    ("MedicationRequest", "intent"): {
+        "proposal",
+        "plan",
+        "order",
+        "original-order",
+        "reflex-order",
+        "filler-order",
+        "instance-order",
+        "option",
+    },
+}
+REQUIRED_CC = {
+    ("Condition", "clinicalStatus"): (
+        C.COND_CLINICAL,
+        {"active", "recurrence", "relapse", "inactive", "remission", "resolved"},
+    ),
+    ("Condition", "verificationStatus"): (
+        C.COND_VER,
+        {"unconfirmed", "provisional", "differential", "confirmed", "refuted", "entered-in-error"},
+    ),
+}
+
+
+def _binding_errors(r: dict) -> list[str]:
+    t = r.get("resourceType")
+    errs = [
+        f"{t}.{el} '{r[el]}' not in required value set"
+        for (rt, el), vs in REQUIRED_CODES.items()
+        if rt == t and el in r and r[el] not in vs
+    ]
+    for (rt, el), (system, vs) in REQUIRED_CC.items():
+        if rt == t and el in r:
+            for c in r[el].get("coding", []):
+                if c.get("system") == system and c.get("code") not in vs:
+                    errs.append(f"{t}.{el} '{c.get('code')}' not in required value set")
+    return errs
+
+
 def _model(rtype: str):
     mod = import_module(f"fhir.resources.R4B.{_MODELS[rtype]}")
     return getattr(mod, rtype)
@@ -47,7 +122,7 @@ def structural_errors(resource: dict) -> list[str]:
         "Patient/"
     ):
         return ["Observation.subject must reference a Patient (R4)"]
-    return []
+    return _binding_errors(resource)
 
 
 def _codes(cc: dict | None) -> set[tuple[str, str]]:

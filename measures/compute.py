@@ -118,12 +118,18 @@ def add_flags(df: pd.DataFrame) -> pd.DataFrame:
     df["adult"] = df["age"] >= 18
     df["htn"] = df["adult"] & df["htn_onset"].notna()
     df["dm"] = df["adult"] & df["dm_onset"].notna()
-    df["cbp_ip"] = df["age"].between(18, 85) & df["htn_onset"].notna() & (df["htn_onset"] <= CBP_ONSET_CUTOFF)
+
+    def b(x):  # nullable comparisons -> plain bool (missing value = False)
+        return x.fillna(False).astype(bool)
+
+    df["cbp_ip"] = df["age"].between(18, 85) & b(
+        df["htn_onset"].notna() & (df["htn_onset"] <= CBP_ONSET_CUTOFF)
+    )
     df["cbp_excl"] = df["cbp_ip"] & df["esrd_onset"].notna()
     df["cbp_den"] = df["cbp_ip"] & ~df["cbp_excl"]
-    df["cbp_num"] = df["cbp_den"] & (df["sys"] < 140) & (df["dia"] < 90)
+    df["cbp_num"] = df["cbp_den"] & b((df["sys"] < 140) & (df["dia"] < 90))
     df["gsd_den"] = df["age"].between(18, 75) & df["dm_onset"].notna()
-    df["gsd_num"] = df["gsd_den"] & (df["a1c"].isna() | (df["a1c"] > 9.0))
+    df["gsd_num"] = df["gsd_den"] & (df["a1c"].isna() | b(df["a1c"] > 9.0))
     df["gsd_missing"] = df["gsd_den"] & df["a1c"].isna()
     for c in ("sex", "county", "rurality"):
         df[c] = df[c].fillna("Unknown")

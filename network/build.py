@@ -12,10 +12,10 @@ from labcore.io import write_json
 from .broker import Broker
 
 
-def build() -> dict:
-    if not (RAW_DIR / "amc" / "Patient.ndjson").exists():
+def build(raw_dir=RAW_DIR, outputs_dir=OUTPUTS_DIR) -> dict:
+    if not (raw_dir / "amc" / "Patient.ndjson").exists():
         raise SystemExit("No source data found. Run `make data` first.")
-    broker = Broker(RAW_DIR)
+    broker = Broker(raw_dir)
     directory = broker.directory()
     for n in directory["nodes"]:
         cli = broker.nodes[n["id"]]
@@ -25,7 +25,7 @@ def build() -> dict:
         n["resources_visible"] = {t: len(v) for t, v in sorted(store.by_type.items())}
         n["resources_pending_as_of"] = dict(sorted(store.pending.items()))
     directory["as_of"] = DATA_AS_OF.isoformat()
-    write_json(OUTPUTS_DIR / "network_directory.json", directory)
+    write_json(outputs_dir / "network_directory.json", directory)
     return directory
 
 

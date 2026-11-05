@@ -56,8 +56,17 @@ class LogicalClock:
         return self.t.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _canon(v) -> str:
+    """Canonical string form so the chain verifies after CSV / DataFrame round-trips."""
+    if v is None or (isinstance(v, float) and v != v):
+        return ""
+    if isinstance(v, float) and v.is_integer():
+        return str(int(v))
+    return str(v)
+
+
 def _hash(row: dict) -> str:
-    payload = json.dumps({k: row[k] for k in COLUMNS if k != "entry_hash"}, sort_keys=True, default=str)
+    payload = json.dumps({k: _canon(row[k]) for k in COLUMNS if k != "entry_hash"}, sort_keys=True)
     return hashlib.sha256(payload.encode()).hexdigest()
 
 
@@ -108,17 +117,12 @@ class AuditLog:
 def verify_frame(df: pd.DataFrame) -> tuple[bool, str]:
     prev = GENESIS
     for i, rec in enumerate(df.to_dict("records")):
-        row = {c: rec[c] for c in COLUMNS}
-        for k in ("seq", "http_status", "records_returned", "records_withheld"):
-            row[k] = None if pd.isna(row[k]) else int(row[k])
-        for k in COLUMNS:
-            if isinstance(row[k], float) and pd.isna(row[k]):
-                row[k] = None
-        if row["seq"] != i + 1:
+        row = {c: rec.get(c) for c in COLUMNS}
+        if _canon(row["seq"]) != str(i + 1):
             return False, f"sequence gap at row {i + 1}"
-        if row["prev_hash"] != prev:
+        if _canon(row["prev_hash"]) != prev:
             return False, f"broken chain at seq {row['seq']}"
-        if _hash(row) != row["entry_hash"]:
+        if _hash(row) != _canon(row["entry_hash"]):
             return False, f"entry hash mismatch at seq {row['seq']} (row altered)"
-        prev = row["entry_hash"]
+        prev = _canon(row["entry_hash"])
     return True, f"{len(df)} entries verified"
