@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="wrap">
+<section class="hero">
+  <span class="pill">Public Health exchange purpose (T-PH)</span><span class="pill">FHIR R4 · US Core 6.1.0 · USCDI v3</span><span class="pill">Bulk Data $export</span>
+  <h1>Chronic disease surveillance through standardized network exchange</h1>
+  <p class="lead">A public health agency requests minimum-necessary, standardized hypertension and diabetes data from five simulated healthcare organizations through a simulated network, then deduplicates, maps codes and computes population measures. Every number on this page comes from synthetic data.</p>
+</section>
+
+<section>
+  <div class="grid">
+    <div class="card"><h3>The problem</h3><p class="muted">Chronic disease surveillance often depends on surveys, claims and one-off EHR extracts. Each request has its own portal, file layout and agreement, so providers repeat the work, patients seen at several organizations are double-counted, and local codes quietly drop out of analyses.</p></div>
+    <div class="card"><h3>The idea</h3><p class="muted">One purpose-checked request over a network, inspired by TEFCA's Public Health exchange purpose. Each organization returns standardized FHIR data, limited to what the use case needs, with every step audited. Exchange then adds what no single organization can see on its own.</p></div>
+    <div class="card"><h3>What this lab shows</h3><p class="muted">Purpose-based filtering (Public Health vs Treatment), Bulk Data-style export, record linkage with privacy-preserving tokens, terminology mapping, data quality by source, and measures adapted from CMS165 and CMS122.</p></div>
+  </div>
+</section>
+
+<section id="network">
+  <h2>Network and architecture</h2>
+  <figure><img src="docs/diagrams/architecture.svg" alt="Architecture: five organization nodes expose FHIR APIs; a simulated broker checks purpose, filters and audits; the health department normalizes, maps, links and computes measures."><figcaption>{{ synthetic }} The broker is a simplification. See <a href="docs/architecture.html#how-this-simplifies-real-qhin-to-qhin-exchange">how this simplifies real exchange</a>.</figcaption></figure>
+  <h3>Simulated organizations</h3>
+  <table><thead><tr><th>Node</th><th>Organization (fictional)</th><th>Type</th><th>EHR "flavor"</th></tr></thead><tbody>
+  {% for n in nodes %}<tr><td>{{ n.id|upper }}</td><td>{{ n.name }}</td><td>{{ n.kind }}</td><td class="small">{{ n.ehr_flavor }}</td></tr>{% endfor %}
+  </tbody></table>
+</section>
+
+<section id="use-case">
+  <h2>Use case at a glance</h2>
+  <div class="grid">
+    <div class="card"><h3>Flow A · Public Health</h3><p class="small muted">The health department (PHA) sends <code>T-PH</code> with jurisdiction and date range → the broker checks role and purpose → bulk export from all nodes → a limited data set is returned (no names, MRNs, phone numbers or street addresses; PPRL tokens included) → the PHA normalizes, maps codes and deduplicates.</p></div>
+    <div class="card"><h3>Flow B · Treatment (contrast)</h3><p class="small muted">A clinician sends <code>T-TREAT</code> for one patient → the full record with identifiers comes back from each organization holding a match. HIPAA minimum necessary doesn't apply to disclosures to a provider for treatment.</p></div>
+    <div class="card"><h3>Refused requests</h3><p class="small muted">{{ denials|length }} scenarios: a payer asserting Public Health, a missing date range, a push-only XP code (<code>T-PH-ECR</code>), bulk export under Treatment, excess resource types, the wrong jurisdiction, and more. Every one is audited.</p></div>
+  </div>
+  <p><a href="docs/use_case.html">Full use case: actors, flows, data elements →</a></p>
+</section>
+
+<section id="results">
+  <h2>Headline results <span class="muted small">(measurement period 2025; network view, full pipeline)</span></h2>
+  <div class="grid">
+    {% for s in stats %}<div class="stat"><div class="label">{{ s.label }}</div><div class="value">{{ s.value }}</div><div class="sub">{{ s.sub }}</div></div>{% endfor %}
+  </div>
+  <p class="small muted">{{ synthetic }} {{ population }} adults with a qualifying visit. BP control is adapted from CMS165v13 and HbA1c &gt;9% from CMS122v13 (inverse measure; lower is better), with simplifications documented in the <a href="docs/use_case.html#8-measure-specifications">use case</a>. Not comparable to reported eCQM results.</p>
+  <h3>What deduplication and code mapping change</h3>
+  <div class="chart" id="chart-effects" role="img" aria-label="Bar chart of hypertension prevalence and BP control at each pipeline step"></div>
+  <ul class="small">
+    {% for b in effect_bullets %}<li>{{ b }}</li>{% endfor %}
+  </ul>
+  <h3>What exchange adds beyond one organization</h3>
+  <div class="chart" id="chart-svn" role="img" aria-label="Bar chart comparing BP control using a single organization's data vs the network view"></div>
+  <ul class="small">{% for b in svn_bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+  <h3>Where to act: BP control by county</h3>
+  <div class="chart" id="chart-county" role="img" aria-label="Bar chart of BP control by county"></div>
+  <h3>Data quality by node</h3>
+  <div class="chart" id="chart-dq" role="img" aria-label="Heatmap of data-quality metrics by node"></div>
+  <ul class="small">{% for b in dq_bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+  <details><summary>Table view of headline measures</summary>
+  <table><thead><tr><th>Measure</th><th class="num">Numerator</th><th class="num">Denominator</th><th class="num">Rate</th></tr></thead><tbody>
+  {% for r in table %}<tr><td>{{ r.label }}</td><td class="num">{{ r.num }}</td><td class="num">{{ r.den }}</td><td class="num">{{ r.rate }}</td></tr>{% endfor %}
+  </tbody></table></details>
+</section>
+
+<section id="more">
+  <h2>Explore</h2>
+  <div class="grid">
+    <div class="card links"><h3>Documentation</h3>{% for d in docs %}<a href="docs/{{ d.slug }}.html">{{ d.title }}</a>{% endfor %}</div>
+    <div class="card links"><h3>Examples</h3><a href="examples/index.html">Requests, responses, NDJSON and audit entries</a><a href="examples/02_treatment_patient_query/purpose_comparison.md">Same person, two purposes</a></div>
+    <div class="card links"><h3>Interactive app</h3><a href="{{ app_url }}">Streamlit app: request simulator, dashboards, audit viewer</a><span class="small muted">Run locally with <code>make app</code>.</span></div>
+  </div>
+</section>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@{{ plotly_js }}/plotly.min.js"></script>
+<script id="chart-data" type="application/json">{{ charts_json | safe }}</script>
+<script>
+(function () {
+  var specs = JSON.parse(document.getElementById("chart-data").textContent);
+  function draw() {
+    var mode = window.__effectiveTheme();
+    Object.keys(specs).forEach(function (id) {
+      var el = document.getElementById(id); if (!el || !window.Plotly) return;
+      var f = specs[id][mode];
+      Plotly.react(el, f.data, f.layout, { responsive: true, displaylogo: false, modeBarButtonsToRemove: ["lasso2d", "select2d"] });
+    });
+  }
+  draw();
+  document.addEventListener("themechange", draw);
+  if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+})();
+</script>
+{% endblock %}

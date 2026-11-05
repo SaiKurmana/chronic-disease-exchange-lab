@@ -1,0 +1,177 @@
+{
+  "_label": "Synthetic data — for demonstration only.",
+  "nodes": [
+    {
+      "id": "amc",
+      "name": "Lakeland Academic Medical Center",
+      "kind": "Academic medical center",
+      "county": "Harbor County",
+      "ehr_flavor": "Enterprise EHR; SNOMED CT problem list with ICD-10-CM translations; BP panel",
+      "fhir_base": "https://amc.node.example",
+      "fhir_version": "4.0.1",
+      "supports": [
+        "patient-query",
+        "bulk-export"
+      ],
+      "health": "ok",
+      "resources_visible": {
+        "Condition": 682,
+        "Encounter": 5528,
+        "MedicationRequest": 897,
+        "Observation": 9943,
+        "Organization": 1,
+        "Patient": 1422
+      },
+      "resources_pending_as_of": {
+        "Condition": 0,
+        "Encounter": 0,
+        "MedicationRequest": 0,
+        "Observation": 0,
+        "Organization": 0,
+        "Patient": 0
+      }
+    },
+    {
+      "id": "rhc",
+      "name": "Prairie Rural Health Clinic",
+      "kind": "Rural health clinic",
+      "county": "Prairie County",
+      "ehr_flavor": "Small-practice EHR; local problem codes; systolic/diastolic as separate observations; monthly batch",
+      "fhir_base": "https://rhc.node.example",
+      "fhir_version": "4.0.1",
+      "supports": [
+        "patient-query",
+        "bulk-export"
+      ],
+      "health": "ok",
+      "resources_visible": {
+        "Condition": 617,
+        "Encounter": 5064,
+        "MedicationRequest": 818,
+        "Observation": 14586,
+        "Organization": 1,
+        "Patient": 1194
+      },
+      "resources_pending_as_of": {
+        "Condition": 3,
+        "Encounter": 61,
+        "MedicationRequest": 32,
+        "Observation": 210,
+        "Organization": 0,
+        "Patient": 0
+      }
+    },
+    {
+      "id": "fqhc",
+      "name": "Harbor Community Health Center",
+      "kind": "Federally qualified health center",
+      "county": "Harbor County",
+      "ehr_flavor": "Community health center EHR; ICD-10-CM only; point-of-care HbA1c in IFCC units (mmol/mol)",
+      "fhir_base": "https://fqhc.node.example",
+      "fhir_version": "4.0.1",
+      "supports": [
+        "patient-query",
+        "bulk-export"
+      ],
+      "health": "ok",
+      "resources_visible": {
+        "Condition": 565,
+        "Encounter": 4186,
+        "MedicationRequest": 792,
+        "Observation": 7426,
+        "Organization": 1,
+        "Patient": 1025
+      },
+      "resources_pending_as_of": {
+        "Condition": 0,
+        "Encounter": 0,
+        "MedicationRequest": 0,
+        "Observation": 0,
+        "Organization": 0,
+        "Patient": 0
+      }
+    },
+    {
+      "id": "ipp",
+      "name": "Cedar Valley Family Practice",
+      "kind": "Independent primary care practice",
+      "county": "Cedar County",
+      "ehr_flavor": "Ambulatory EHR; mixed ICD-10-CM/SNOMED CT; non-UCUM BP unit; free-text medications",
+      "fhir_base": "https://ipp.node.example",
+      "fhir_version": "4.0.1",
+      "supports": [
+        "patient-query",
+        "bulk-export"
+      ],
+      "health": "ok",
+      "resources_visible": {
+        "Condition": 443,
+        "Encounter": 3438,
+        "MedicationRequest": 610,
+        "Observation": 6205,
+        "Organization": 1,
+        "Patient": 849
+      },
+      "resources_pending_as_of": {
+        "Condition": 0,
+        "Encounter": 0,
+        "MedicationRequest": 0,
+        "Observation": 0,
+        "Organization": 0,
+        "Patient": 0
+      }
+    },
+    {
+      "id": "mmg",
+      "name": "Millbrook Medical Group",
+      "kind": "Multispecialty group",
+      "county": "Mill County",
+      "ehr_flavor": "Multi-site EHR; SNOMED CT only; occasional duplicate vitals from interface resends",
+      "fhir_base": "https://mmg.node.example",
+      "fhir_version": "4.0.1",
+      "supports": [
+        "patient-query",
+        "bulk-export"
+      ],
+      "health": "ok",
+      "resources_visible": {
+        "Condition": 657,
+        "Encounter": 5293,
+        "MedicationRequest": 877,
+        "Observation": 9800,
+        "Organization": 1,
+        "Patient": 1309
+      },
+      "resources_pending_as_of": {
+        "Condition": 0,
+        "Encounter": 0,
+        "MedicationRequest": 0,
+        "Observation": 0,
+        "Organization": 0,
+        "Patient": 0
+      }
+    }
+  ],
+  "requesters": [
+    {
+      "id": "lkdph",
+      "name": "Lakeland Department of Public Health (fictional)",
+      "role": "PHA"
+    },
+    {
+      "id": "amc-clinician",
+      "name": "Clinician at Lakeland Academic Medical Center",
+      "role": "HealthCareProvider"
+    },
+    {
+      "id": "acme-health-plan",
+      "name": "Acme Health Plan (fictional)",
+      "role": "HealthPlan"
+    }
+  ],
+  "purposes_supported": {
+    "T-PH": "bulk-export (population, limited data set)",
+    "T-TREAT": "patient-query (full record)"
+  },
+  "as_of": "2026-01-15"
+}

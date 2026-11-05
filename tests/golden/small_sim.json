@@ -1,0 +1,91 @@
+{
+  "audit_entries": 68,
+  "dedup": {
+    "precision": 1.0,
+    "predicted_persons": 803,
+    "recall": 0.9688,
+    "records": 939,
+    "true_persons": 800
+  },
+  "denials": [
+    [
+      "payer-asserts-public-health",
+      403
+    ],
+    [
+      "ph-missing-date-range",
+      400
+    ],
+    [
+      "ph-ecr-query",
+      400
+    ],
+    [
+      "treatment-bulk-export",
+      403
+    ],
+    [
+      "ph-excess-resource-types",
+      403
+    ],
+    [
+      "ph-wrong-jurisdiction",
+      403
+    ],
+    [
+      "payment-purpose",
+      403
+    ],
+    [
+      "unknown-purpose",
+      400
+    ],
+    [
+      "invalid-credential",
+      401
+    ],
+    [
+      "ph-patient-name-query",
+      403
+    ]
+  ],
+  "effects": {
+    "cbp_as_received": 0.4714,
+    "cbp_full_pipeline": 0.5987,
+    "gsd_as_received": 0.4118,
+    "gsd_full_pipeline": 0.375,
+    "htn_prevalence_as_received": 0.2284,
+    "htn_prevalence_full_pipeline": 0.2755,
+    "htn_prevalence_ground_truth_latent": 0.3519,
+    "persons_naive_vs_linked": [
+      815,
+      714
+    ]
+  },
+  "headline": {
+    "cbp": {
+      "denominator": 152,
+      "numerator": 91,
+      "rate": 0.5987
+    },
+    "dm_prevalence": {
+      "denominator": 646,
+      "numerator": 80,
+      "rate": 0.1238
+    },
+    "gsd_gt9": {
+      "denominator": 56,
+      "numerator": 21,
+      "rate": 0.375
+    },
+    "htn_prevalence": {
+      "denominator": 646,
+      "numerator": 178,
+      "rate": 0.2755
+    }
+  },
+  "population": {
+    "adults": 646,
+    "persons_with_qualifying_visit": 714
+  }
+}

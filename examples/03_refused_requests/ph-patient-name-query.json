@@ -1,0 +1,35 @@
+{
+  "_label": "Synthetic data — for demonstration only.",
+  "description": "PHA attempts a patient-level name search under Public Health",
+  "endpoint": "POST /exchange/patient-query",
+  "request": {
+    "request_id": "req-0110-deny",
+    "requester": {
+      "id": "lkdph",
+      "credential": "demo-credential-lkdph"
+    },
+    "purpose": "T-PH",
+    "operation": "patient-query",
+    "jurisdiction": "Lakeland State",
+    "date_range": {
+      "start": "2025-01-01",
+      "end": "2025-12-31"
+    },
+    "patient": {
+      "family": "Smith",
+      "given": "Mary",
+      "birthdate": "1960-01-01"
+    }
+  },
+  "http_status": 403,
+  "response": {
+    "resourceType": "OperationOutcome",
+    "issue": [
+      {
+        "severity": "error",
+        "code": "forbidden",
+        "diagnostics": "Operation 'patient-query' is not permitted for T-PH under this use-case protocol (allowed: ['bulk-export'])"
+      }
+    ]
+  }
+}

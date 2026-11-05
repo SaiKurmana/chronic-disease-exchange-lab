@@ -1,0 +1,40 @@
+{
+  "_label": "Synthetic data — for demonstration only.",
+  "description": "Clinician requests a population bulk export under Treatment",
+  "endpoint": "POST /exchange/$export",
+  "request": {
+    "request_id": "req-0104-deny",
+    "requester": {
+      "id": "amc-clinician",
+      "credential": "demo-credential-amc"
+    },
+    "purpose": "T-TREAT",
+    "operation": "bulk-export",
+    "jurisdiction": "Lakeland State",
+    "date_range": {
+      "start": "2024-01-01",
+      "end": "2025-12-31"
+    },
+    "resource_types": [
+      "Patient",
+      "Encounter",
+      "Condition",
+      "Observation",
+      "MedicationRequest"
+    ],
+    "targets": [
+      "*"
+    ]
+  },
+  "http_status": 403,
+  "response": {
+    "resourceType": "OperationOutcome",
+    "issue": [
+      {
+        "severity": "error",
+        "code": "forbidden",
+        "diagnostics": "Operation 'bulk-export' is not permitted for T-TREAT under this use-case protocol (allowed: ['patient-query'])"
+      }
+    ]
+  }
+}

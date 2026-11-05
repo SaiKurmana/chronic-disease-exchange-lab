@@ -1,0 +1,7 @@
+# Synthetic data — for demonstration only.
+view,label,persons,htn_prevalence_num,htn_prevalence_den,htn_prevalence_rate,dm_prevalence_num,dm_prevalence_den,dm_prevalence_rate,cbp_num,cbp_den,cbp_rate,gsd_gt9_num,gsd_gt9_den,gsd_gt9_rate,htn_diagnosed_rate
+network_as_received,"Network, as received (no code mapping, no deduplication)",4990,948,4483,0.2115,456,4483,0.1017,376.0000,773.0000,0.4864,126.0000,332.0000,0.3795,
+network_mapped,+ code & unit mapping (no deduplication),4990,1096,4483,0.2445,560,4483,0.1249,540.0000,894.0000,0.6040,152.0000,407.0000,0.3735,
+network_linked,+ PPRL deduplication (full pipeline),4465,1018,4003,0.2543,519,4003,0.1297,500.0000,830.0000,0.6024,128.0000,375.0000,0.3413,
+network_oracle,Full pipeline with perfect (ground-truth) linkage,4438,1016,3981,0.2552,517,3981,0.1299,498.0000,828.0000,0.6014,128.0000,373.0000,0.3432,
+ground_truth,Ground truth: latent disease incl. undiagnosed (same population),4438,1392,3981,0.3497,604,3981,0.1517,,,,,,,0.2781

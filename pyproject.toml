@@ -1,0 +1,20 @@
+[project]
+name = "chronic-disease-exchange-lab"
+version = "0.1.0"
+description = "Independent portfolio project: TEFCA-inspired chronic disease data exchange simulation on synthetic data."
+requires-python = ">=3.11"
+authors = [{ name = "Sai Kurmana" }]
+license = { text = "MIT" }
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["data", "_site", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

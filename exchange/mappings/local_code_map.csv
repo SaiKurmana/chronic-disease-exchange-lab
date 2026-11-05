@@ -1,0 +1,13 @@
+# Synthetic data — for demonstration only. Receiver-maintained crosswalk from source-specific local codes to standard codes.
+source_system,source_code,target_system,target_code,target_display,transform,notes
+https://saikurmana.github.io/chronic-disease-exchange-lab/CodeSystem/prairie-rhc-local-dx,HTN,http://snomed.info/sct,59621000,Essential hypertension,,Rural clinic local problem code
+https://saikurmana.github.io/chronic-disease-exchange-lab/CodeSystem/prairie-rhc-local-dx,DM2,http://snomed.info/sct,44054006,Type 2 diabetes mellitus,,Rural clinic local problem code
+https://saikurmana.github.io/chronic-disease-exchange-lab/CodeSystem/prairie-rhc-local-dx,ESRD,http://snomed.info/sct,46177005,End-stage renal disease,,Rural clinic local problem code
+https://saikurmana.github.io/chronic-disease-exchange-lab/CodeSystem/harbor-chc-local-lab,A1C-IFCC,http://loinc.org,4548-4,Hemoglobin A1c/Hemoglobin.total in Blood,ifcc_mmol_mol_to_ngsp_percent,FQHC point-of-care HbA1c reported in IFCC units; NGSP% = 0.09148*IFCC + 2.152
+text,Lisinopril 10mg tablet,http://www.nlm.nih.gov/research/umls/rxnorm,314076,lisinopril 10 MG Oral Tablet,,Free-text medication (independent practice)
+text,Amlodipine 5mg tab,http://www.nlm.nih.gov/research/umls/rxnorm,197361,amlodipine 5 MG Oral Tablet,,Free-text medication (independent practice)
+text,HCTZ 25 mg tablet,http://www.nlm.nih.gov/research/umls/rxnorm,310798,hydrochlorothiazide 25 MG Oral Tablet,,Free-text medication (independent practice)
+text,Losartan 50mg tab,http://www.nlm.nih.gov/research/umls/rxnorm,979492,losartan potassium 50 MG Oral Tablet,,Free-text medication (independent practice)
+text,Metformin 500mg tablet,http://www.nlm.nih.gov/research/umls/rxnorm,861007,metformin hydrochloride 500 MG Oral Tablet,,Free-text medication (independent practice)
+text,Glipizide 5 mg tab,http://www.nlm.nih.gov/research/umls/rxnorm,310490,glipizide 5 MG Oral Tablet,,Free-text medication (independent practice)
+unit,mmHg,http://unitsofmeasure.org,mm[Hg],millimeter of mercury,,Non-UCUM unit string normalized to UCUM

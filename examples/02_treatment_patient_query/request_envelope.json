@@ -1,0 +1,18 @@
+{
+  "_label": "Synthetic data — for demonstration only.",
+  "request_id": "req-0002-treatment-query",
+  "requester": {
+    "id": "amc-clinician",
+    "credential": "demo-credential-amc"
+  },
+  "purpose": "T-TREAT",
+  "operation": "patient-query",
+  "targets": [
+    "*"
+  ],
+  "patient": {
+    "family": "Nelson",
+    "given": "Maria",
+    "birthdate": "1966-07-15"
+  }
+}

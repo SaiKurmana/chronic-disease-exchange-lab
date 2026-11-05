@@ -1,0 +1,80 @@
+{
+  "_label": "Synthetic data — for demonstration only.",
+  "measurement_period": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "population": {
+    "persons_with_qualifying_visit": 4465,
+    "adults": 4003
+  },
+  "headline": {
+    "htn_prevalence": {
+      "numerator": 1018,
+      "denominator": 4003,
+      "rate": 0.2543
+    },
+    "dm_prevalence": {
+      "numerator": 519,
+      "denominator": 4003,
+      "rate": 0.1297
+    },
+    "cbp": {
+      "numerator": 500,
+      "denominator": 830,
+      "rate": 0.6024
+    },
+    "gsd_gt9": {
+      "numerator": 128,
+      "denominator": 375,
+      "rate": 0.3413
+    }
+  },
+  "measure_labels": {
+    "htn_prevalence": "Hypertension prevalence",
+    "dm_prevalence": "Diabetes prevalence",
+    "cbp": "Controlling high BP (<140/90), CMS165v13-adapted",
+    "gsd_gt9": "HbA1c >9% or missing (inverse), CMS122v13-adapted"
+  },
+  "effects": {
+    "persons_naive_vs_linked": [
+      4990,
+      4465
+    ],
+    "htn_prevalence_as_received": 0.2115,
+    "htn_prevalence_full_pipeline": 0.2543,
+    "htn_prevalence_ground_truth_latent": 0.3497,
+    "cbp_as_received": 0.4864,
+    "cbp_full_pipeline": 0.6024,
+    "gsd_as_received": 0.3795,
+    "gsd_full_pipeline": 0.3413
+  },
+  "dedup": {
+    "precision": 0.9988,
+    "recall": 0.9511,
+    "f1": 0.9744,
+    "records": 5799,
+    "predicted_persons": 5034,
+    "true_persons": 5000
+  },
+  "dq_metric_labels": {
+    "patients": "Patients received",
+    "race_complete_pct": "Race recorded (%)",
+    "ethnicity_complete_pct": "Ethnicity recorded (%)",
+    "sex_known_pct": "Administrative sex known (%)",
+    "county_complete_pct": "County (address.district) recorded (%)",
+    "obs_effective_complete_pct": "Observations with effective date (%)",
+    "condition_status_complete_pct": "Conditions with clinicalStatus (%)",
+    "dx_standard_code_pct": "Chronic dx coded in SNOMED CT / ICD-10-CM (%)",
+    "a1c_loinc_pct": "HbA1c results with LOINC code (%)",
+    "bp_ucum_pct": "BP values in UCUM mm[Hg] (%)",
+    "med_rxnorm_pct": "Medications coded in RxNorm (%)",
+    "bp_plausible_pct": "BP values physiologically plausible (%)",
+    "fhir_structural_valid_pct": "Resources passing FHIR R4(B) structural validation (%)",
+    "us_core_conformant_pct": "Profiled resources meeting US Core 'must have' (%)",
+    "median_lag_days": "Median days from clinical event to availability",
+    "within_7_days_pct": "Records available within 7 days (%)",
+    "pending_at_extract": "Records not yet loaded at extract date",
+    "duplicate_bp_resends": "Duplicate BP resends"
+  }
+}

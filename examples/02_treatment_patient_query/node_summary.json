@@ -1,0 +1,30 @@
+{
+  "_label": "Synthetic data — for demonstration only.",
+  "nodes": [
+    {
+      "node": "amc",
+      "matched_patients": 1,
+      "resources": 10
+    },
+    {
+      "node": "fqhc",
+      "matched_patients": 0,
+      "resources": 0
+    },
+    {
+      "node": "ipp",
+      "matched_patients": 0,
+      "resources": 0
+    },
+    {
+      "node": "mmg",
+      "matched_patients": 1,
+      "resources": 28
+    },
+    {
+      "node": "rhc",
+      "matched_patients": 0,
+      "resources": 0
+    }
+  ]
+}

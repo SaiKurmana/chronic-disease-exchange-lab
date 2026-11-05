@@ -1,0 +1,235 @@
+{
+  "_label": "Synthetic data — for demonstration only.",
+  "as_of": "2026-01-15",
+  "flow_a": {
+    "nodes": [
+      "amc",
+      "fqhc",
+      "ipp",
+      "mmg",
+      "rhc"
+    ],
+    "resources_received": {
+      "amc": {
+        "Condition": 431,
+        "Encounter": 5528,
+        "MedicationRequest": 897,
+        "Observation": 7188,
+        "Patient": 1422
+      },
+      "fqhc": {
+        "Condition": 369,
+        "Encounter": 4186,
+        "MedicationRequest": 792,
+        "Observation": 5311,
+        "Patient": 1025
+      },
+      "ipp": {
+        "Condition": 287,
+        "Encounter": 3438,
+        "MedicationRequest": 610,
+        "Observation": 4538,
+        "Patient": 849
+      },
+      "mmg": {
+        "Condition": 422,
+        "Encounter": 5293,
+        "MedicationRequest": 877,
+        "Observation": 7120,
+        "Patient": 1309
+      },
+      "rhc": {
+        "Condition": 407,
+        "Encounter": 5064,
+        "MedicationRequest": 818,
+        "Observation": 12095,
+        "Patient": 1194
+      }
+    },
+    "filter": [
+      {
+        "node": "amc",
+        "returned": 15466,
+        "withheld": {
+          "condition-not-in-value-set": 251,
+          "observation-not-in-value-set": 2755
+        }
+      },
+      {
+        "node": "fqhc",
+        "returned": 11683,
+        "withheld": {
+          "condition-not-in-value-set": 196,
+          "observation-not-in-value-set": 2115
+        }
+      },
+      {
+        "node": "ipp",
+        "returned": 9722,
+        "withheld": {
+          "condition-not-in-value-set": 156,
+          "observation-not-in-value-set": 1667
+        }
+      },
+      {
+        "node": "mmg",
+        "returned": 15021,
+        "withheld": {
+          "condition-not-in-value-set": 235,
+          "observation-not-in-value-set": 2680
+        }
+      },
+      {
+        "node": "rhc",
+        "returned": 19578,
+        "withheld": {
+          "condition-not-in-value-set": 210,
+          "observation-not-in-value-set": 2491
+        }
+      }
+    ]
+  },
+  "normalization_mapped": {
+    "a1c_converted_ifcc": 403,
+    "bp_duplicate_resends_removed": 287,
+    "bp_incomplete": 117,
+    "bp_split_pairs": 5684,
+    "bp_unit_normalized": 3877,
+    "conditions_mapped_from_local": 279,
+    "conditions_missing_clinical_status": 64,
+    "conditions_total": 1916,
+    "conditions_unrecognized": 0,
+    "county_derived_from_zip": 438,
+    "meds_mapped_from_text": 252,
+    "meds_total": 3994,
+    "meds_unrecognized": 0,
+    "obs_missing_effective": 560
+  },
+  "normalization_unmapped": {
+    "bp_duplicate_resends_removed": 287,
+    "bp_incomplete": 117,
+    "bp_split_pairs": 5684,
+    "bp_unit_unrecognized": 3877,
+    "conditions_mapped_from_local": 0,
+    "conditions_missing_clinical_status": 64,
+    "conditions_total": 1916,
+    "conditions_unrecognized": 279,
+    "county_derived_from_zip": 438,
+    "meds_mapped_from_text": 0,
+    "meds_total": 3994,
+    "meds_unrecognized": 252,
+    "obs_missing_effective": 560,
+    "observations_unrecognized": 403
+  },
+  "dedup": {
+    "records": 5799,
+    "true_persons": 5000,
+    "predicted_persons": 5034,
+    "naive_persons_no_dedup": 5799,
+    "true_cross_org_pairs": 900,
+    "predicted_pairs": 857,
+    "true_positive_pairs": 856,
+    "false_positive_pairs": 1,
+    "false_negative_pairs": 44,
+    "precision": 0.9988,
+    "recall": 0.9511,
+    "f1": 0.9744,
+    "missed_pairs_by_variation": {
+      "family_typo": 26,
+      "family_typo|nickname": 5,
+      "family_typo|moved": 4,
+      "dob_day_month_swap": 3,
+      "dob_day_month_swap|family_typo": 3,
+      "dob_day_month_swap|family_typo|nickname": 1,
+      "dob_day_month_swap|nickname": 1,
+      "family_typo|hyphenated": 1
+    }
+  },
+  "flow_b": {
+    "status": 200,
+    "summary": [
+      {
+        "node": "amc",
+        "matched_patients": 1,
+        "resources": 10
+      },
+      {
+        "node": "fqhc",
+        "matched_patients": 0,
+        "resources": 0
+      },
+      {
+        "node": "ipp",
+        "matched_patients": 0,
+        "resources": 0
+      },
+      {
+        "node": "mmg",
+        "matched_patients": 1,
+        "resources": 28
+      },
+      {
+        "node": "rhc",
+        "matched_patients": 0,
+        "resources": 0
+      }
+    ]
+  },
+  "denials": [
+    {
+      "slug": "payer-asserts-public-health",
+      "status": 403,
+      "reason": "Requester role 'HealthPlan' may not assert T-PH; requires ['PHA']"
+    },
+    {
+      "slug": "ph-missing-date-range",
+      "status": 400,
+      "reason": "Public Health requests must include a date range"
+    },
+    {
+      "slug": "ph-ecr-query",
+      "status": 400,
+      "reason": "T-PH-ECR (Electronic Case Reporting) is message delivery/push only; no Queries use this XP code"
+    },
+    {
+      "slug": "treatment-bulk-export",
+      "status": 403,
+      "reason": "Operation 'bulk-export' is not permitted for T-TREAT under this use-case protocol (allowed: ['patient-query'])"
+    },
+    {
+      "slug": "ph-excess-resource-types",
+      "status": 403,
+      "reason": "Resource types ['DocumentReference'] exceed the minimum-necessary profile ph-chronic-disease-lds-v1"
+    },
+    {
+      "slug": "ph-wrong-jurisdiction",
+      "status": 403,
+      "reason": "Asserted jurisdiction does not match the PHA's registered jurisdiction"
+    },
+    {
+      "slug": "payment-purpose",
+      "status": 403,
+      "reason": "T-PYMNT (Payment) is a recognized XP code but is not supported by responders in this simulated network"
+    },
+    {
+      "slug": "unknown-purpose",
+      "status": 400,
+      "reason": "Unknown exchange purpose code 'T-RESEARCH'"
+    },
+    {
+      "slug": "invalid-credential",
+      "status": 401,
+      "reason": "Unknown requester or invalid credential"
+    },
+    {
+      "slug": "ph-patient-name-query",
+      "status": 403,
+      "reason": "Operation 'patient-query' is not permitted for T-PH under this use-case protocol (allowed: ['bulk-export'])"
+    }
+  ],
+  "audit": {
+    "entries": 68,
+    "chain_verified": true,
+    "detail": "68 entries verified"
+  }
+}
