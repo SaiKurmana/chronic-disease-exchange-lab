@@ -8,7 +8,7 @@
 
 A working simulation of a chronic disease use case for nationwide health information exchange, inspired by TEFCA's **Public Health** exchange purpose. A public health agency requests standardized hypertension and diabetes data from five simulated healthcare organizations across a simulated network. It then maps local codes, deduplicates patients across organizations, and computes population measures for surveillance and program action. The repo also includes the use-case, stakeholder and protocol documentation a real program would need, written as reusable templates.
 
-**Site:** <https://saikurmana.github.io/chronic-disease-exchange-lab/> · **App:** `make app` (Streamlit; hosted URL: `APP_URL`)
+**Site:** <https://saikurmana.github.io/chronic-disease-exchange-lab/> · **App:** <https://chronic-disease-exchange.streamlit.app/> (or run locally with `make app`)
 
 ## The problem
 
@@ -62,7 +62,7 @@ make pipeline test
 make app
 ```
 
-To host the app on Streamlit Community Cloud, set the entrypoint to `app/streamlit_app.py`. Cloud installs `app/requirements.txt`, which pins exactly the app's runtime dependencies at the same versions as `requirements-app.txt`; a test keeps the two in sync.
+The app is live at <https://chronic-disease-exchange.streamlit.app/>. To host your own copy on Streamlit Community Cloud, set the entrypoint to `app/streamlit_app.py`. Cloud installs `app/requirements.txt`, which pins exactly the app's runtime dependencies at the same versions as `requirements-app.txt`; a test keeps the two in sync.
 
 `make pipeline` runs `make data network exchange measures`, and takes about 1.5 minutes on a laptop. `make site` builds the static site into `_site/`. The app and the site both run offline from the committed `outputs/`.
 

@@ -18,7 +18,7 @@ def test_site_builds_with_labels_and_valid_links(tmp_path):
         assert DISCLAIMER in text, p
         assert SYNTHETIC_LABEL in text, p
         for href in re.findall(r'href="([^"#:]+?)(?:#[^"]*)?"', text):
-            if href.startswith(("http", "mailto", "APP_URL")):
+            if href.startswith(("http", "mailto")):
                 continue
             assert (p.parent / href).resolve().exists(), (p.name, href)
     index = (out / "index.html").read_text(encoding="utf-8")
