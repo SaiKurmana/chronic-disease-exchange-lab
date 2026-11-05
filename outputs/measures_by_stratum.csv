@@ -1,0 +1,82 @@
+# Synthetic data — for demonstration only.
+view,stratifier,stratum,measure,measure_label,numerator,denominator,rate,small_cell
+network_linked,Overall,All,htn_prevalence,Hypertension prevalence,1018,4003,0.2543,False
+network_linked,Overall,All,dm_prevalence,Diabetes prevalence,519,4003,0.1297,False
+network_linked,Overall,All,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",500,830,0.6024,False
+network_linked,Overall,All,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",128,375,0.3413,False
+network_linked,Organization,amc,htn_prevalence,Hypertension prevalence,217,902,0.2406,False
+network_linked,Organization,amc,dm_prevalence,Diabetes prevalence,112,902,0.1242,False
+network_linked,Organization,amc,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",103,174,0.5920,False
+network_linked,Organization,amc,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",28,86,0.3256,False
+network_linked,Organization,fqhc,htn_prevalence,Hypertension prevalence,205,705,0.2908,False
+network_linked,Organization,fqhc,dm_prevalence,Diabetes prevalence,89,705,0.1262,False
+network_linked,Organization,fqhc,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",98,169,0.5799,False
+network_linked,Organization,fqhc,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",22,58,0.3793,False
+network_linked,Organization,ipp,htn_prevalence,Hypertension prevalence,159,586,0.2713,False
+network_linked,Organization,ipp,dm_prevalence,Diabetes prevalence,78,586,0.1331,False
+network_linked,Organization,ipp,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",88,139,0.6331,False
+network_linked,Organization,ipp,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",12,58,0.2069,False
+network_linked,Organization,mmg,htn_prevalence,Hypertension prevalence,226,922,0.2451,False
+network_linked,Organization,mmg,dm_prevalence,Diabetes prevalence,112,922,0.1215,False
+network_linked,Organization,mmg,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",119,182,0.6538,False
+network_linked,Organization,mmg,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",20,78,0.2564,False
+network_linked,Organization,rhc,htn_prevalence,Hypertension prevalence,211,888,0.2376,False
+network_linked,Organization,rhc,dm_prevalence,Diabetes prevalence,128,888,0.1441,False
+network_linked,Organization,rhc,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",92,166,0.5542,False
+network_linked,Organization,rhc,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",46,95,0.4842,False
+network_linked,Age group,18-44,htn_prevalence,Hypertension prevalence,171,1702,0.1005,False
+network_linked,Age group,18-44,dm_prevalence,Diabetes prevalence,68,1702,0.0400,False
+network_linked,Age group,18-44,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",108,167,0.6467,False
+network_linked,Age group,18-44,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",15,68,0.2206,False
+network_linked,Age group,45-64,htn_prevalence,Hypertension prevalence,424,1412,0.3003,False
+network_linked,Age group,45-64,dm_prevalence,Diabetes prevalence,230,1412,0.1629,False
+network_linked,Age group,45-64,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",231,402,0.5746,False
+network_linked,Age group,45-64,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",86,230,0.3739,False
+network_linked,Age group,65+,htn_prevalence,Hypertension prevalence,423,889,0.4758,False
+network_linked,Age group,65+,dm_prevalence,Diabetes prevalence,221,889,0.2486,False
+network_linked,Age group,65+,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",161,261,0.6169,False
+network_linked,Age group,65+,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",27,77,0.3506,False
+network_linked,Sex,Female,htn_prevalence,Hypertension prevalence,518,1967,0.2633,False
+network_linked,Sex,Female,dm_prevalence,Diabetes prevalence,252,1967,0.1281,False
+network_linked,Sex,Female,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",269,421,0.6390,False
+network_linked,Sex,Female,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",65,185,0.3514,False
+network_linked,Sex,Male,htn_prevalence,Hypertension prevalence,497,2030,0.2448,False
+network_linked,Sex,Male,dm_prevalence,Diabetes prevalence,267,2030,0.1315,False
+network_linked,Sex,Male,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",230,407,0.5651,False
+network_linked,Sex,Male,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",63,190,0.3316,False
+network_linked,Sex,Unknown,htn_prevalence,Hypertension prevalence,3,6,0.5000,True
+network_linked,Sex,Unknown,dm_prevalence,Diabetes prevalence,0,6,0.0000,True
+network_linked,Sex,Unknown,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",1,2,0.5000,True
+network_linked,Sex,Unknown,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",0,0,,True
+network_linked,County,Cedar County,htn_prevalence,Hypertension prevalence,191,708,0.2698,False
+network_linked,County,Cedar County,dm_prevalence,Diabetes prevalence,91,708,0.1285,False
+network_linked,County,Cedar County,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",103,162,0.6358,False
+network_linked,County,Cedar County,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",13,66,0.1970,False
+network_linked,County,Harbor County,htn_prevalence,Hypertension prevalence,335,1252,0.2676,False
+network_linked,County,Harbor County,dm_prevalence,Diabetes prevalence,144,1252,0.1150,False
+network_linked,County,Harbor County,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",158,273,0.5788,False
+network_linked,County,Harbor County,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",34,100,0.3400,False
+network_linked,County,Lake County,htn_prevalence,Hypertension prevalence,71,311,0.2283,False
+network_linked,County,Lake County,dm_prevalence,Diabetes prevalence,48,311,0.1543,False
+network_linked,County,Lake County,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",25,62,0.4032,False
+network_linked,County,Lake County,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",18,35,0.5143,False
+network_linked,County,Mill County,htn_prevalence,Hypertension prevalence,210,850,0.2471,False
+network_linked,County,Mill County,dm_prevalence,Diabetes prevalence,112,850,0.1318,False
+network_linked,County,Mill County,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",116,170,0.6824,False
+network_linked,County,Mill County,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",18,81,0.2222,False
+network_linked,County,Prairie County,htn_prevalence,Hypertension prevalence,114,485,0.2351,False
+network_linked,County,Prairie County,dm_prevalence,Diabetes prevalence,67,485,0.1381,False
+network_linked,County,Prairie County,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",54,92,0.5870,False
+network_linked,County,Prairie County,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",22,51,0.4314,False
+network_linked,County,Ridge County,htn_prevalence,Hypertension prevalence,97,397,0.2443,False
+network_linked,County,Ridge County,dm_prevalence,Diabetes prevalence,57,397,0.1436,False
+network_linked,County,Ridge County,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",44,71,0.6197,False
+network_linked,County,Ridge County,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",23,42,0.5476,False
+network_linked,Rurality,Rural,htn_prevalence,Hypertension prevalence,282,1193,0.2364,False
+network_linked,Rurality,Rural,dm_prevalence,Diabetes prevalence,172,1193,0.1442,False
+network_linked,Rurality,Rural,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",123,225,0.5467,False
+network_linked,Rurality,Rural,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",63,128,0.4922,False
+network_linked,Rurality,Urban,htn_prevalence,Hypertension prevalence,736,2810,0.2619,False
+network_linked,Rurality,Urban,dm_prevalence,Diabetes prevalence,347,2810,0.1235,False
+network_linked,Rurality,Urban,cbp,"Controlling high BP (<140/90), CMS165v13-adapted",377,605,0.6231,False
+network_linked,Rurality,Urban,gsd_gt9,"HbA1c >9% or missing (inverse), CMS122v13-adapted",65,247,0.2632,False

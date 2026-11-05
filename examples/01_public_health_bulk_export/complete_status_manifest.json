@@ -1,0 +1,181 @@
+{
+  "_label": "Synthetic data — for demonstration only.",
+  "transactionTime": "2026-01-15T23:59:59Z",
+  "request": "https://broker.network.example/exchange/$export (request_id=req-0001-ph-bulk)",
+  "requiresAccessToken": true,
+  "output": [
+    {
+      "type": "Condition",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/amc/Condition.ndjson",
+      "count": 431
+    },
+    {
+      "type": "Encounter",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/amc/Encounter.ndjson",
+      "count": 5528
+    },
+    {
+      "type": "MedicationRequest",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/amc/MedicationRequest.ndjson",
+      "count": 897
+    },
+    {
+      "type": "Observation",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/amc/Observation.ndjson",
+      "count": 7188
+    },
+    {
+      "type": "Patient",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/amc/Patient.ndjson",
+      "count": 1422
+    },
+    {
+      "type": "Condition",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/fqhc/Condition.ndjson",
+      "count": 369
+    },
+    {
+      "type": "Encounter",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/fqhc/Encounter.ndjson",
+      "count": 4186
+    },
+    {
+      "type": "MedicationRequest",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/fqhc/MedicationRequest.ndjson",
+      "count": 792
+    },
+    {
+      "type": "Observation",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/fqhc/Observation.ndjson",
+      "count": 5311
+    },
+    {
+      "type": "Patient",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/fqhc/Patient.ndjson",
+      "count": 1025
+    },
+    {
+      "type": "Condition",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/ipp/Condition.ndjson",
+      "count": 287
+    },
+    {
+      "type": "Encounter",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/ipp/Encounter.ndjson",
+      "count": 3438
+    },
+    {
+      "type": "MedicationRequest",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/ipp/MedicationRequest.ndjson",
+      "count": 610
+    },
+    {
+      "type": "Observation",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/ipp/Observation.ndjson",
+      "count": 4538
+    },
+    {
+      "type": "Patient",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/ipp/Patient.ndjson",
+      "count": 849
+    },
+    {
+      "type": "Condition",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/mmg/Condition.ndjson",
+      "count": 422
+    },
+    {
+      "type": "Encounter",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/mmg/Encounter.ndjson",
+      "count": 5293
+    },
+    {
+      "type": "MedicationRequest",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/mmg/MedicationRequest.ndjson",
+      "count": 877
+    },
+    {
+      "type": "Observation",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/mmg/Observation.ndjson",
+      "count": 7120
+    },
+    {
+      "type": "Patient",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/mmg/Patient.ndjson",
+      "count": 1309
+    },
+    {
+      "type": "Condition",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/rhc/Condition.ndjson",
+      "count": 407
+    },
+    {
+      "type": "Encounter",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/rhc/Encounter.ndjson",
+      "count": 5064
+    },
+    {
+      "type": "MedicationRequest",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/rhc/MedicationRequest.ndjson",
+      "count": 818
+    },
+    {
+      "type": "Observation",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/rhc/Observation.ndjson",
+      "count": 12095
+    },
+    {
+      "type": "Patient",
+      "url": "https://broker.network.example/exchange/files/job-eb6b1bbcb943/rhc/Patient.ndjson",
+      "count": 1194
+    }
+  ],
+  "error": [],
+  "extension": {
+    "purpose": "T-PH",
+    "filter_profile": "ph-chronic-disease-lds-v1",
+    "nodes": [
+      {
+        "node": "amc",
+        "returned": 15466,
+        "withheld": {
+          "condition-not-in-value-set": 251,
+          "observation-not-in-value-set": 2755
+        }
+      },
+      {
+        "node": "fqhc",
+        "returned": 11683,
+        "withheld": {
+          "condition-not-in-value-set": 196,
+          "observation-not-in-value-set": 2115
+        }
+      },
+      {
+        "node": "ipp",
+        "returned": 9722,
+        "withheld": {
+          "condition-not-in-value-set": 156,
+          "observation-not-in-value-set": 1667
+        }
+      },
+      {
+        "node": "mmg",
+        "returned": 15021,
+        "withheld": {
+          "condition-not-in-value-set": 235,
+          "observation-not-in-value-set": 2680
+        }
+      },
+      {
+        "node": "rhc",
+        "returned": 19578,
+        "withheld": {
+          "condition-not-in-value-set": 210,
+          "observation-not-in-value-set": 2491
+        }
+      }
+    ],
+    "synthetic-data": "Synthetic data — for demonstration only."
+  }
+}

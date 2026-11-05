@@ -1,0 +1,3 @@
+# Synthetic data — for demonstration only.
+HTTP/1.1 202 Accepted
+Content-Location: https://broker.network.example/exchange/status/job-eb6b1bbcb943

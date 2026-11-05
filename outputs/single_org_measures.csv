@@ -1,0 +1,7 @@
+# Synthetic data — for demonstration only.
+view,label,persons,htn_prevalence_num,htn_prevalence_den,htn_prevalence_rate,dm_prevalence_num,dm_prevalence_den,dm_prevalence_rate,cbp_num,cbp_den,cbp_rate,gsd_gt9_num,gsd_gt9_den,gsd_gt9_rate
+single_org:amc,Lakeland Academic Medical Center only,1170,238,1050,0.2267,122,1050,0.1162,113,192,0.5885,31,92,0.3370
+single_org:rhc,Prairie Rural Health Clinic only,1049,228,952,0.2395,139,952,0.1460,103,183,0.5628,54,102,0.5294
+single_org:fqhc,Harbor Community Health Center only,887,219,790,0.2772,97,790,0.1228,103,178,0.5787,29,66,0.4394
+single_org:ipp,Cedar Valley Family Practice only,745,171,671,0.2548,83,671,0.1237,96,149,0.6443,13,62,0.2097
+single_org:mmg,Millbrook Medical Group only,1139,240,1020,0.2353,119,1020,0.1167,125,192,0.6510,25,85,0.2941
