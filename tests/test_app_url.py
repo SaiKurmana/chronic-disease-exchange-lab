@@ -39,8 +39,9 @@ def test_placeholder_absent_from_docs_templates_and_data():
 def test_placeholder_not_used_as_a_python_string():
     """The constant's *name* is fine; a string literal "APP_URL" (the old placeholder value) is not."""
     hits = []
+    this_file = Path(__file__).resolve()  # this test necessarily holds the placeholder text it searches for
     for p in _tracked_files():
-        if p.suffix == ".py" and p.exists():
+        if p.suffix == ".py" and p.exists() and p.resolve() != this_file:
             for node in ast.walk(ast.parse(p.read_text(encoding="utf-8"))):
                 if isinstance(node, ast.Constant) and node.value == PLACEHOLDER:
                     hits.append(f"{p.relative_to(ROOT)}:{node.lineno}")
