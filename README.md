@@ -62,6 +62,8 @@ make pipeline test
 make app
 ```
 
+To host the app on Streamlit Community Cloud, set the entrypoint to `app/streamlit_app.py`. Cloud installs `app/requirements.txt`, which pins exactly the app's runtime dependencies at the same versions as `requirements-app.txt`; a test keeps the two in sync.
+
 `make pipeline` runs `make data network exchange measures`, and takes about 1.5 minutes on a laptop. `make site` builds the static site into `_site/`. The app and the site both run offline from the committed `outputs/`.
 
 | Target | What it does |
