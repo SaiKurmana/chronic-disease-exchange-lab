@@ -39,8 +39,8 @@ NOT_LEGAL_ADVICE = "This material is descriptive and educational; it is not lega
 
 AUTHOR = "Sai Kurmana, MPH, MS, CPHIMS"
 REPO_URL = "https://github.com/saikurmana/chronic-disease-exchange-lab"
-# Replace with the deployed Streamlit URL once the app is hosted.
-APP_URL = "APP_URL"
+# Hosted Streamlit app (Streamlit Community Cloud).
+APP_URL = "https://chronic-disease-exchange.streamlit.app/"
 
 # Project-local namespace for synthetic identifiers / code systems (not a real registry).
 NS = "https://saikurmana.github.io/chronic-disease-exchange-lab"
